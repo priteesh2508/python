@@ -1,0 +1,51 @@
+#!/usr/bin/python3
+
+import sys
+
+class clock :
+    def __init__(self):
+        f=open("./try.txt",'r')
+        st= f.read()
+        self.hour,self.minutes,self.seconds ,x= st.split()
+        f.close()
+    def timeget(self):
+        f=open("./try.txt",'r')
+        st= f.read()
+        self.hour,self.minutes,self.seconds,x = st.split()
+        print(self.hour+":"+self.minutes+":"+self.seconds)
+        f.close()
+    def timeset(self,hour,minutes,seconds):             
+        f = open('./try.txt','w')
+        st =hour+" "+minutes+" "+seconds+" x"
+        f.write(st)
+        f.close()
+    def iterate(self,seconds):
+        f=open("./try.txt",'r')
+        st= f.read()
+        self.hour,self.minutes,self.seconds,x = st.split()
+        f.close();
+
+        seconds = int(self.seconds)+int(seconds)
+        self.seconds = seconds%60
+        seconds = int(seconds/60)
+        seconds +=int(self.minutes)
+        self.minutes = seconds%60
+        seconds = int(seconds/60)
+        seconds +=int(self.hour)
+        self.hour = seconds%24
+
+        f = open('./try.txt','w')
+        st  =str(self.hour)+" "+str(self.minutes)+" "+str(self.seconds)+" x"
+        f.write(st)
+        f.close()
+
+
+
+
+obj = clock()
+if(len(sys.argv)==2):
+    obj.iterate(sys.argv[1])
+elif(len(sys.argv)==1):
+    obj.timeget()
+else:
+    obj.timeset(sys.argv[1],sys.argv[2],sys.argv[3])

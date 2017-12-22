@@ -1,0 +1,347 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<title>BLOG | HOME</title>
+	<!-- Required meta tags -->
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+	<!-- Bootstrap CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+	<style>
+	.carousel-inner > .item > .container{
+		width: 100%;
+	}
+
+	.carousel-inner > .item > .container > img,
+	.carousel-inner > .item > .container > a > img {
+		display: block;
+		width: 100%; 
+		height: 400px !important;
+	}
+
+
+	
+</style>
+</head>
+<body>
+
+	<nav class="navbar navbar-expand-lg navbar-light bg-light navbar-default navbar-fixed-top">
+		<!-- Navbar content -->
+		<div class="col-lg-1"></div>
+		<a class="navbar-brand" href="#">Navbar</a>
+		<div class="collapse navbar-collapse" id="navbarNavDropdown">
+			<ul class="navbar-nav nav">
+				<li class="nav-item active">
+					<a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="#">About</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="#">Blogs</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" id ="signed-name"></a>
+				</li>
+
+				
+			</ul>
+			<div class="col-lg-8"></div>
+			
+			<button class="btn btn-outline-success my-2 my-sm-0" type="submit" data-toggle="modal" data-target="#myModal" id="breg">Register</button>
+
+			<div id="myModal" class="modal fade" role="dialog">
+				<div class="modal-dialog modal-lg">
+
+					<!-- Modal content-->
+					<div class="modal-content">
+						<div class="modal-header">
+							<h4 class="modal-title">Login</h4>
+							<button type="button" class="close" data-dismiss="modal">&times;</button>
+							
+						</div>
+						<div class="modal-body">
+							<form id ="f1" class="form-inline" onsubmit="return reg()">
+								<div class="form-group" style="margin:2px">
+									<label for="staticEmail2" class="sr-only">Name</label>
+									<input type="text" class="form-control" id="naam" placeholder="Name">
+								</div><br>
+								<div class="form-group" style="margin:2px">
+									<label for="staticEmail2" class="sr-only">E-mail</label>
+									<input type="text" class="form-control" id="name" placeholder="Email">
+								</div><br>
+								<div class="form-group mx-lg-8" style="margin:2px">
+									<label for="inputPassword2" class="sr-only">Password</label>
+									<input type="password" class="form-control" id="pass" placeholder="Password">
+								</div><br>
+								<button type="submit" style="margin:2px" class="btn btn-primary">Confirm identity</button>
+							</form>
+						</div>
+					</div>
+
+				</div>
+			</div>
+
+			<button class="btn btn-outline-success my-2 my-sm-0" type="submit" data-toggle="modal" data-target="#myModal1" id ="blogin">Login</button>
+
+			<div id="myModal1" class="modal fade" role="dialog">
+				<div class="modal-dialog modal-lg">
+
+					<!-- Modal content-->
+					<div class="modal-content">
+						<div class="modal-header">
+							<h4 class="modal-title">Login</h4>
+							<button type="button" class="close" data-dismiss="modal">&times;</button>
+							
+						</div>
+						<div class="modal-body">
+							<form id="f2" class="form-inline" onsubmit="return login()">
+								<div class="form-group" style="margin:2px">
+									<label for="staticEmail2" class="sr-only">Email</label>
+									<input type="text" class="form-control" id="name1" placeholder="Email">
+								</div>
+								<div class="form-group mx-lg-8" style="margin:2px">
+									<label for="inputPassword2" class="sr-only">Password</label>
+									<input type="password" class="form-control" id="pass1" placeholder="Password">
+								</div>
+								<button type="submit" style="margin:2px" class="btn btn-primary">Confirm identity</button>
+							</form>
+						</div>
+					</div>
+
+				</div>
+			</div>
+			<button class="btn btn-outline-success my-2 my-sm-0" type="button" onclick="return logout()" id= "blogout">Logout</button>
+		</div>
+	</nav>
+
+
+
+
+
+
+
+
+
+	
+
+
+	<div id="carouselExampleIndicators" class="carousel slide col-lg-12" data-ride="carousel">
+		<ol class="carousel-indicators">
+			<li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+			<li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+			<li data-target="#carouselExampleIndicators" data-slide-to="2" class="active"></li>
+			<li data-target="#carouselExampleIndicators" data-slide-to="3"></li>
+		</ol>
+		<div class="carousel-inner col-lg-12">
+			<div class="carousel-item col-lg-12 item active">
+				<div class="container col-lg-12" >
+					<img class="d-block w-100" src="1.jpg" alt="First slide">
+					<div class="carousel-caption d-none d-md-block">
+						<h3>Blog 1</h3>
+						<p>...</p>
+					</div>
+				</div>
+			</div>
+			<div class="carousel-item item col-lg-12">
+				<div class="container col-lg-12">
+					<img class="d-block w-100" src="3.jpg" alt="First slide">
+					<div class="carousel-caption d-none d-md-block">
+						<h3>Blog 2</h3>
+						<p>...</p>
+					</div>
+				</div>
+			</div>
+		</div>
+		<a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+			<span class="carousel-control-prev-icon" aria-hidden="false"></span>
+			<span class="sr-only">Previous</span>
+		</a>
+		<a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+			<span class="carousel-control-next-icon" aria-hidden="false"></span>
+			<span class="sr-only">Next</span>
+		</a>
+	</div>
+	<br><br>
+	
+	<div class="row">
+		<div class="col-1"></div>
+		<div class="col-sm-12 col-lg-5">
+			<div class="card">
+				<img class="card-img-top" src="1.jpg"  height=300px alt="Card image cap">
+				<div class="card-body">
+					<h4 class="card-title" id="bh1">Blog 1</h4>
+					<p class="card-text" id="bb1">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas pharetra vulputate egestas. Pellentesque a ligula erat. Fusce faucibus auctor metus, sed hendrerit velit volutpat et. Nam accumsan ornare elit. </p>
+					<span id="span1" style="display:none"></span>
+					<a href="blog1.html"><button onclick ="blog1('span1')" type="button" class="btn btn-primary readmore">Read More</button></a>
+				</div>
+			</div>
+		</div>
+		
+		<div class="col-sm-12 col-lg-5">
+			<div class="card">
+				<img class="card-img-top" height=300px src="2.jpeg" alt="Card image cap">
+				<div class="card-body">
+					<h4 class="card-title" id="bh2">Blog 2</h4>
+					<p class="card-text" id="bb2">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas pharetra vulputate egestas. Pellentesque a ligula erat. Fusce faucibus auctor metus, sed hendrerit velit volutpat et. Nam accumsan ornare elit. </p>
+					<span id="span2" style="display:none"></span>
+					<a href="blog1.html"><button onclick ="blog1('span2')" type="button" class="btn btn-primary readmore">Read More</button></a>
+				</div>
+			</div>
+		</div>
+	</div>
+	<br><br>
+	<div class="row">
+		<div class="col-1"></div>
+		<div class="col-sm-12 col-lg-5">
+			<div class="card">
+				<img class="card-img-top" src="3.jpg"  height=300px alt="Card image cap">
+				<div class="card-body">
+					<h4 class="card-title">Blog 3</h4>
+					<p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas pharetra vulputate egestas. Pellentesque a ligula erat. Fusce faucibus auctor metus, sed hendrerit velit volutpat et. Nam accumsan ornare elit. </p>
+					<span id="span3" style="display:none"></span>
+					<a href="blog1.html"><button onclick ="blog1('span3')" type="button" class="btn btn-primary readmore">Read More</button></a>
+				</div>
+			</div>
+		</div>
+		
+		<div class="col-sm-12 col-lg-5">
+			<div class="card">
+				<img class="card-img-top" src="4.jpg"  height=300px alt="Card image cap">
+				<div class="card-body">
+					<h4 class="card-title">Blog 4</h4>
+					<p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas pharetra vulputate egestas. Pellentesque a ligula erat. Fusce faucibus auctor metus, sed hendrerit velit volutpat et. Nam accumsan ornare elit. </p>
+					<span id="span4" style="display:none"></span>
+					<a href="blog1.html"><button onclick ="blog1('span4')" type="button" class="btn btn-primary readmore">Read More</button></a>
+				</div>
+			</div>
+		</div>
+	</div>
+
+</div>
+
+<br>
+<br>
+
+<hr>
+
+
+<script>
+	
+	document.getElementById("blogin").style="visibility:visible";
+		document.getElementById("breg").style="visibility:visible";
+		document.getElementById("blogout").style="visibility:hidden";
+	if(localStorage.getItem("signed-in")){
+		//alert("Signed in");
+		document.getElementById("signed-name").innerHTML=localStorage.getItem("signed-in");
+		document.getElementById("blogin").style="visibility:hidden";
+		document.getElementById("breg").style="visibility:hidden";
+		document.getElementById("blogout").style="visibility:visible";
+	}
+
+		
+	
+	var reg=function(){
+		var form= document.getElementById("f1");
+		var user= {"n":form.naam.value , "u": form.name.value , "p": form.pass.value};
+			//alert(JSON.stringify(user));
+			//alert(localStorage.getItem("usersj"));
+
+			var a = JSON.parse(localStorage.getItem("usersb"));
+			//alert(localStorage.getItem("usersj"));
+			if(a!=null){
+				;
+			}
+			else
+				a=[];
+			a.push(user)
+			//alert(JSON.stringify(a));
+			localStorage.setItem("usersb",JSON.stringify(a));
+			alert("Registration Succesfull! Login to Continue");
+
+
+
+		}
+
+
+		var login=function()
+		{
+			
+				var form= document.getElementById("f2");
+				var a = JSON.parse(localStorage.getItem("usersb"));
+			//alert(a[3].p);
+			for(var i=0;i<a.length;i++)
+			{
+				//alert(a[i].u,a[i].p);
+				if(form.name1.value==a[i].u && form.pass1.value==a[i].p){
+				//	alert(a[i].u,a[i].p);
+				//alert("Login Succesfull!");
+				localStorage.setItem("signed-in", a[i].n);
+				return true
+			}
+
+		}
+		alert("Wrong credentials");
+		return false;
+
+}
+
+var logout=function()
+{	document.getElementById("signed-name").innerHTML="";
+	localStorage.removeItem("signed-in");
+	document.getElementById("blogin").style="visibility:visible";
+		document.getElementById("breg").style="visibility:visible";
+		document.getElementById("blogout").style="visibility:hidden";
+}
+
+</script>
+
+
+<script>
+	var xhttp = new XMLHttpRequest();
+	
+	xhttp.onreadystatechange = function(){
+		if(this.readyState == 4 && this.status==200) {
+			console.log(JSON.parse(this.responseText));
+			var a= JSON.parse(this.responseText);
+			for(var i=0;i<4;i++){
+				document.getElementsByClassName("card-img-top")[i].src=a[i].imageUrl;
+				document.getElementsByClassName("card-text")[i].innerHTML=a[i].content;
+				document.getElementsByClassName("card-title")[i].innerHTML=a[i].title;
+				document.getElementsByClassName("card-text")[i].innerHTML=a[i].content;
+				document.getElementById("span"+(i+1)).innerHTML=a[i].id;
+
+			}
+		}
+	};
+	var s="http://koushikmln.com:7500/blogs";
+	xhttp.open("GET", s , true);
+	xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+	xhttp.send();
+
+
+	function blog1(id) {
+		//alert(id);
+		//debugger;
+		var id1=document.getElementById(id).innerHTML;
+		//alert(id1);
+		//debugger;
+		localStorage.setItem("id",id1);
+
+	}
+
+
+
+
+	//http://koushikmln.com:7500/blogs/
+
+</script>
+
+
+
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
+</body>
+</html>

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Bill Generator</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+	<!-- Bootstrap CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+</head>
+<body>
+	<br><br>
+<div class="form-check form-check-inline">
+	<form>
+		<input id="name" type="text" placeholder="Name"><br><br>
+		<div class="col-md-12" id= "fieldList">
+		<input class="n" name="name[]" type="text" placeholder="Description" >
+		<input class="p" name="phone[]" type="text" placeholder="Quantity" >
+		<input class="e" name="email[]" type="text" placeholder="Price">
+	</div>
+		<br>
+		<button id="addMore" type="button" onclick="add()">Add more fields</button>
+		<input type="submit" onclick = "sub()">
+	</form>
+</div>
+	<script>
+
+		//localStorage.setItem("bill","1");
+		let ct=0;
+
+		let add = function(){
+
+			let str=""
+
+			for(let i =0;i<=ct;i++){
+				//console.log(ct);
+				str+='<input class="n" name="name[]" type="text" placeholder="Description" value = '+document.getElementsByClassName("n")[i].value+'>\
+				<input class="p" name="phone[]" type="text" placeholder="Quantity" value = '+document.getElementsByClassName("p")[i].value+'>\
+				<input class="e" name="email[]" type="text" placeholder="Price" value = '+document.getElementsByClassName("e")[i].value+'><br>';
+
+			}
+			str+= '<input class="n" name="name[]" type="text" placeholder="Description" />\
+			<input class="p" name="phone[]" type="text" placeholder="Quantity" />\
+			<input class="e" name="email[]" type="text" placeholder="Price">';
+
+			ct++;
+
+			document.getElementById("fieldList").innerHTML = str;
+		}
+
+		let bill = parseInt(localStorage.getItem("bill"))+1;
+		let today = new Date();
+		let date = today.getDate()+'-'+(today.getMonth()+1)+'-'+today.getFullYear();
+		let sub = function(){
+			js = {
+				"billto": document.getElementById("name").value ,
+				"Date": date,
+				"bill-no": bill,
+				"details" : []
+			};
+			for(i=0;i<=ct;i++)
+			{
+				js.details.push({"desc":document.getElementsByClassName("n")[i].value,
+					"qty":document.getElementsByClassName("p")[i].value,
+					"price":document.getElementsByClassName("e")[i].value
+				});
+			}
+			alert(JSON.stringify(js));
+			localStorage.setItem("bill",bill);
+
+			console.log(js);
+			let str = JSON.stringify(js);
+			console.log(str)
+			var el = document.createElement('a');
+			el.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(str));
+			el.setAttribute('download', bill+'.txt');
+			el.click();
+		}
+		
+
+		
+	</script>
+	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
+</body>
+</html>
